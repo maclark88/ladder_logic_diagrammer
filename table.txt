@@ -1,0 +1,16 @@
+# bypass: D on skips A and B, so only C must be on
+(r1)
+D    NEXT + 2    NEXT
+A    NEXT        OFF
+B    NEXT        OFF      P     # P = entry point just before B
+C    ON          OFF
+
+# patch: E on continues at P (B, then C)
+(r2)
+E    P           OFF
+
+# original example
+(r3)
+S2   NEXT + 1    NEXT
+S1   ON          NEXT
+S3   ON          OFF
